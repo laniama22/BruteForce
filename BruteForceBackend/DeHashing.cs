@@ -40,7 +40,7 @@ namespace BruteForceBackend
             targetHashBytes = Convert.FromHexString(Hash);
         }
 
-        public string DeHash(int maxLength, CancellationToken ct)
+        public string DeHash(int minLength, CancellationToken ct)
         {
             Setup(); // Prepare data
             foundPassword = null;
@@ -63,11 +63,11 @@ namespace BruteForceBackend
                     BruteForceStats.CurrentLength = currentLenght;
 
                     // You can still keep this for debugging if you want
-                    Console.WriteLine($"[Stats] Checked: {totalChecks:N0} | Speed: {rate:N0}/s");
+                    Console.WriteLine($"[Stats] Checked: {totalChecks:N0} | Speed: {rate:N0}/s | Length: {currentLenght}");
                 }
             }, ct);
 
-            for (int length = 1; length <= maxLength; length++)
+            for (int length = minLength; length > 0; length++)
             {
                 currentLenght = length;
                 // Parallel Loop

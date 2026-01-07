@@ -75,6 +75,7 @@ function App() {
 
     setIsLoading(true);
     setResult("Comparing hashes...");
+    setProgress({ checks: 0, speed: 0, currentLength: 0 }); // Reset at start
 
     abortControllerRef.current = new AbortController();
 
@@ -85,7 +86,7 @@ function App() {
         
         body: JSON.stringify({
             hashToCrack: cleanHash, 
-            maxLength: 7,
+            minLength: 8,
             
             pepperLocation: pepperPlacement,
             useNumbers: charOptions.numbers,
@@ -107,6 +108,10 @@ function App() {
     } catch (error: any) {
       if (error.name === 'AbortError') {
         setResult("Cancelled by user.");
+
+        // --- THE FIX IS HERE ---
+        // Force the display back to 0 immediately
+        setProgress({ checks: 0, speed: 0, currentLength: 0 });
       } else {
         console.error("Error:", error);
         setResult("Error connecting.");

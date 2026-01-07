@@ -38,7 +38,7 @@ app.MapPost("/api/crack", async ([FromBody] HashRequest request, CancellationTok
         UseSpecialChars = request.UseSpecialChars
     };
 
-    string result = await Task.Run(() => solver.DeHash(request.MaxLength, ct), ct);
+    string result = await Task.Run(() => solver.DeHash(request.MinLength, ct), ct);
     
     return Results.Ok(new { Password = result });
 });
@@ -65,7 +65,7 @@ public static class BruteForceStats
 
 internal record HashRequest(
     string HashToCrack, 
-    int MaxLength, 
+    int MinLength, 
     string PepperLocation, 
     bool UseNumbers, 
     bool UseSmallLetters, 
