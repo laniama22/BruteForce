@@ -25,3 +25,4 @@ C:\Users\aligo\projects\BruteForce\BruteForceBackend\obj\Debug\net9.0\refint\Bru
 C:\Users\aligo\projects\BruteForce\BruteForceBackend\obj\Debug\net9.0\BruteForceBackend.pdb
 C:\Users\aligo\projects\BruteForce\BruteForceBackend\obj\Debug\net9.0\BruteForceBackend.genruntimeconfig.cache
 C:\Users\aligo\projects\BruteForce\BruteForceBackend\obj\Debug\net9.0\ref\BruteForceBackend.dll
+C:\Users\aligo\projects\BruteForce\BruteForceBackend\obj\Debug\net9.0\BruteForceBackend.sourcelink.json

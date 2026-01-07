@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("BruteForceBackend")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+56cb35d4d86e34468a235215f4cda2c6cbf87b5a")]
 [assembly: System.Reflection.AssemblyProductAttribute("BruteForceBackend")]
 [assembly: System.Reflection.AssemblyTitleAttribute("BruteForceBackend")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
