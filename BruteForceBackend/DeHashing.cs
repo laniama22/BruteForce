@@ -15,6 +15,9 @@ namespace BruteForceBackend
         public required bool UseSmallLetters { get; set; }
         public required bool UseBigLetters { get; set; }
         public required bool UseSpecialChars { get; set; }
+
+        // 1. NEW PROPERTY
+        public string? LimitStartingChars { get; set; }
         
         public string charset = "";
         public string pepper = "cajovna-2025-";
@@ -67,11 +70,17 @@ namespace BruteForceBackend
                 }
             }, ct);
 
-            for (int length = minLength; length > 0; length++)
+            for (int length = minLength; length < 100; length++)
             {
                 currentLenght = length;
+
+                // 2. USE THE SPLIT HERE
+                // If LimitStartingChars is set (Hybrid mode), we only iterate those for the first letter.
+                // Otherwise we use the full charset.
+                string currentOuterCharset = LimitStartingChars ?? charset;
+
                 // Parallel Loop
-                Parallel.ForEach(charset, new ParallelOptions { CancellationToken = ct }, (firstChar, state) =>
+                Parallel.ForEach(currentOuterCharset, new ParallelOptions { CancellationToken = ct }, (firstChar, state) =>
                 {
                     // OPTIMIZATION: Create one buffer per thread
                     // This replaces millions of 'string' creations

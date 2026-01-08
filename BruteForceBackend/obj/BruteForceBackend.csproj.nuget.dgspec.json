@@ -45,6 +45,12 @@
       "frameworks": {
         "net10.0": {
           "targetAlias": "net10.0",
+          "dependencies": {
+            "ILGPU": {
+              "target": "Package",
+              "version": "[1.5.3, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

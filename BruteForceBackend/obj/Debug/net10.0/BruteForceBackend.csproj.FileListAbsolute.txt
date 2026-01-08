@@ -27,3 +27,6 @@ C:\Users\aligo\source\repos\BruteForce\BruteForceBackend\obj\Debug\net10.0\refin
 C:\Users\aligo\source\repos\BruteForce\BruteForceBackend\obj\Debug\net10.0\BruteForceBackend.pdb
 C:\Users\aligo\source\repos\BruteForce\BruteForceBackend\obj\Debug\net10.0\BruteForceBackend.genruntimeconfig.cache
 C:\Users\aligo\source\repos\BruteForce\BruteForceBackend\obj\Debug\net10.0\ref\BruteForceBackend.dll
+C:\Users\aligo\source\repos\BruteForce\BruteForceBackend\bin\Debug\net10.0\ILGPU.dll
+C:\Users\aligo\source\repos\BruteForce\BruteForceBackend\obj\Debug\net10.0\BruteForceBackend.csproj.AssemblyReference.cache
+C:\Users\aligo\source\repos\BruteForce\BruteForceBackend\obj\Debug\net10.0\BruteFor.055326E0.Up2Date

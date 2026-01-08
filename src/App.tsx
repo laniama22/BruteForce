@@ -86,7 +86,7 @@ function App() {
         
         body: JSON.stringify({
             hashToCrack: cleanHash, 
-            minLength: 8,
+            minLength: 4,
             
             pepperLocation: pepperPlacement,
             useNumbers: charOptions.numbers,

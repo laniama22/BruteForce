@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "2zL/4KrYi80=",
+  "dgSpecHash": "LdMk0C1I0Yo=",
   "success": true,
   "projectFilePath": "C:\\Users\\aligo\\source\\repos\\BruteForce\\BruteForceBackend\\BruteForceBackend.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\aligo\\.nuget\\packages\\ilgpu\\1.5.3\\ilgpu.1.5.3.nupkg.sha512"
+  ],
   "logs": []
 }

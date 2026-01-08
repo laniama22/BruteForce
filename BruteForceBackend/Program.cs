@@ -1,5 +1,6 @@
 using BruteForceBackend;
 using Microsoft.AspNetCore.Mvc;
+using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -20,26 +21,41 @@ app.UseCors("AllowReactApp");
 
 // --- API ENDPOINTS ---
 
+// app.MapPost("/api/crack", async ([FromBody] HashRequest request, CancellationToken ct) =>
+// {
+//     Console.WriteLine($"Starting crack for: {request.HashToCrack}");
+    
+//     BruteForceStats.TotalChecks = 0;
+//     BruteForceStats.Speed = 0;
+//     BruteForceStats.CurrentLength = 0;
+
+//     var solver = new DeHashing 
+//     { 
+//         Hash = request.HashToCrack,
+//         PepperLocation = request.PepperLocation,
+//         UseNumbers = request.UseNumbers,
+//         UseSmallLetters = request.UseSmallLetters,
+//         UseBigLetters = request.UseBigLetters,
+//         UseSpecialChars = request.UseSpecialChars
+//     };
+
+//     string result = await Task.Run(() => solver.DeHash(request.MinLength, ct), ct);
+    
+//     return Results.Ok(new { Password = result });
+// });
+
 app.MapPost("/api/crack", async ([FromBody] HashRequest request, CancellationToken ct) =>
 {
-    Console.WriteLine($"Starting crack for: {request.HashToCrack}");
-    
+    Console.WriteLine($"[Hybrid] Starting crack for: {request.HashToCrack}");
     BruteForceStats.TotalChecks = 0;
     BruteForceStats.Speed = 0;
     BruteForceStats.CurrentLength = 0;
 
-    var solver = new DeHashing 
-    { 
-        Hash = request.HashToCrack,
-        PepperLocation = request.PepperLocation,
-        UseNumbers = request.UseNumbers,
-        UseSmallLetters = request.UseSmallLetters,
-        UseBigLetters = request.UseBigLetters,
-        UseSpecialChars = request.UseSpecialChars
-    };
-
-    string result = await Task.Run(() => solver.DeHash(request.MinLength, ct), ct);
+    var hybridSolver = new HybridDeHashing();
     
+    // The hybrid solver handles the parallelism internally
+    string result = await hybridSolver.SolveAsync(request, ct);
+
     return Results.Ok(new { Password = result });
 });
 
