@@ -28,7 +28,7 @@ function App() {
   };
 
   useEffect(() => {
-    let intervalId: any;
+    let intervalId: any; // Never use any
 
     if (isLoading) {
         intervalId = setInterval(async () => {
