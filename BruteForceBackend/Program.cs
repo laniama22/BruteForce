@@ -58,6 +58,7 @@ internal record HashRequest(
     string HashToCrack, 
     int MinLength, 
     string PepperLocation, 
+    string Pepper,
     bool UseNumbers, 
     bool UseSmallLetters, 
     bool UseBigLetters, 

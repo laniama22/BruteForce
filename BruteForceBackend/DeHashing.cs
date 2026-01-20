@@ -15,12 +15,10 @@ namespace BruteForceBackend
         public required bool UseSmallLetters { get; set; }
         public required bool UseBigLetters { get; set; }
         public required bool UseSpecialChars { get; set; }
+        public string Pepper { get; set; } = "";
 
         public string? LimitStartingChars { get; set; }
-        
         public string charset = "";
-        public string pepper = "cajovna-2025-";
-
         private volatile string? foundPassword = null;
         private long totalChecks = 0;
         private int currentLenght = 0;
@@ -116,7 +114,7 @@ namespace BruteForceBackend
 
         private bool CheckHashFast(char[] buffer, SHA256 sha)
         {
-            int totalLen = buffer.Length + pepper.Length;
+            int totalLen = buffer.Length + Pepper.Length;
             
             Span<byte> inputBytes = stackalloc byte[totalLen * 4];
             
@@ -124,13 +122,13 @@ namespace BruteForceBackend
             
             if (PepperLocation == "before")
             {
-                bytesWritten += Encoding.UTF8.GetBytes(pepper, inputBytes.Slice(bytesWritten));
+                bytesWritten += Encoding.UTF8.GetBytes(Pepper, inputBytes.Slice(bytesWritten));
                 bytesWritten += Encoding.UTF8.GetBytes(buffer, inputBytes.Slice(bytesWritten));
             }
             else
             {
                 bytesWritten += Encoding.UTF8.GetBytes(buffer, inputBytes.Slice(bytesWritten));
-                bytesWritten += Encoding.UTF8.GetBytes(pepper, inputBytes.Slice(bytesWritten));
+                bytesWritten += Encoding.UTF8.GetBytes(Pepper, inputBytes.Slice(bytesWritten));
             }
 
             Span<byte> hashResult = stackalloc byte[32];

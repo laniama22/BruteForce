@@ -4,6 +4,7 @@ import './App.css'
 
 function App() {
   const [hashInput, setHashInput] = useState("");
+  const [pepperInput, setPepperInput] = useState("");
   const [result, setResult] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [progress, setProgress] = useState({ checks: 0, speed: 0, currentLength: 0 });
@@ -51,6 +52,7 @@ function App() {
   const crackHash = async () => {
 
     const cleanHash = hashInput.trim();
+    const cleanPepper = pepperInput.trim();
 
     console.log("Cracking hash:", cleanHash, cleanHash.length);
 
@@ -87,6 +89,7 @@ function App() {
             minLength: 4,
             
             pepperLocation: pepperPlacement,
+            pepper: cleanPepper,
             useNumbers: charOptions.numbers,
             useSmallLetters: charOptions.smallLetters,
             useBigLetters: charOptions.bigLetters,
@@ -153,6 +156,14 @@ function App() {
                     /> At the end
                 </label>
               </form>
+              <h3>Enter Pepper:</h3>
+              <textarea 
+                value={pepperInput}
+                onChange={(e) => setPepperInput(e.target.value)}
+                disabled={isLoading} 
+                rows={3}
+                style={{ width: "300px", padding: "10px" }}
+                />
             </div>
 
             {/* CHARACTER SET FORM */}
@@ -199,6 +210,7 @@ function App() {
           </div>
         ) : null}
 
+        {/* HASH INPUT FIELD */}
         <div>
             <h2>Enter Hash to Crack:</h2>
             <textarea 

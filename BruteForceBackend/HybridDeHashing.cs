@@ -44,6 +44,7 @@ namespace BruteForceBackend
             {
                 Hash = request.HashToCrack,
                 PepperLocation = request.PepperLocation,
+                Pepper = request.Pepper,
                 UseNumbers = request.UseNumbers,
                 UseSmallLetters = request.UseSmallLetters,
                 UseBigLetters = request.UseBigLetters,

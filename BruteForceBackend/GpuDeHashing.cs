@@ -10,6 +10,8 @@ namespace BruteForceBackend
     using ILGPU.Runtime.OpenCL;
     using ILGPU.Runtime.CPU;
 
+    // This script was made by Gemini AI - https://www.gemini.com/
+
     public class GpuDeHashing : IDisposable
     {
         private Context context;
