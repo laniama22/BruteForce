@@ -3,6 +3,8 @@ namespace BruteForceBackend
     using System.Threading;
     using System.Threading.Tasks;
 
+    // This script was made by Gemini AI - https://www.gemini.com/
+
     public class HybridDeHashing
     {
         internal async Task<string> SolveAsync(HashRequest request, CancellationToken ct)

@@ -49,19 +49,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\aligo\\.nuget\\packages\\": {}
+    "C:\\Users\\aligo\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\aligo\\source\\repos\\BruteForce\\BruteForceBackend\\BruteForceBackend.csproj",
+      "projectUniqueName": "C:\\Users\\aligo\\projects\\BruteForce\\BruteForceBackend\\BruteForceBackend.csproj",
       "projectName": "BruteForceBackend",
-      "projectPath": "C:\\Users\\aligo\\source\\repos\\BruteForce\\BruteForceBackend\\BruteForceBackend.csproj",
+      "projectPath": "C:\\Users\\aligo\\projects\\BruteForce\\BruteForceBackend\\BruteForceBackend.csproj",
       "packagesPath": "C:\\Users\\aligo\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\aligo\\source\\repos\\BruteForce\\BruteForceBackend\\obj\\",
+      "outputPath": "C:\\Users\\aligo\\projects\\BruteForce\\BruteForceBackend\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
         "C:\\Users\\aligo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

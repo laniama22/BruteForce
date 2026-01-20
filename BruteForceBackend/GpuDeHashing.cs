@@ -3,6 +3,7 @@ namespace BruteForceBackend
     using System;
     using System.Text;
     using System.Linq;
+    using System.Threading;
     using ILGPU;
     using ILGPU.Runtime;
     using ILGPU.Runtime.Cuda;

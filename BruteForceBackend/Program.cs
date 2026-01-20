@@ -4,45 +4,20 @@ using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// 1. ADD SERVICE (Must happen before Build)
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowReactApp",
         policy => policy
-            .WithOrigins("http://localhost:5173") // Ensure this matches your React URL exactly (no trailing slash)
+            .WithOrigins("http://localhost:5173")
             .AllowAnyMethod()
             .AllowAnyHeader());
 });
 
 var app = builder.Build();
 
-// 2. USE MIDDLEWARE (Crucial Step: MUST BE BEFORE MapPost/MapGet)
 app.UseCors("AllowReactApp"); 
 
 // --- API ENDPOINTS ---
-
-// app.MapPost("/api/crack", async ([FromBody] HashRequest request, CancellationToken ct) =>
-// {
-//     Console.WriteLine($"Starting crack for: {request.HashToCrack}");
-    
-//     BruteForceStats.TotalChecks = 0;
-//     BruteForceStats.Speed = 0;
-//     BruteForceStats.CurrentLength = 0;
-
-//     var solver = new DeHashing 
-//     { 
-//         Hash = request.HashToCrack,
-//         PepperLocation = request.PepperLocation,
-//         UseNumbers = request.UseNumbers,
-//         UseSmallLetters = request.UseSmallLetters,
-//         UseBigLetters = request.UseBigLetters,
-//         UseSpecialChars = request.UseSpecialChars
-//     };
-
-//     string result = await Task.Run(() => solver.DeHash(request.MinLength, ct), ct);
-    
-//     return Results.Ok(new { Password = result });
-// });
 
 app.MapPost("/api/crack", async ([FromBody] HashRequest request, CancellationToken ct) =>
 {

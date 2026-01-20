@@ -30,13 +30,12 @@ function App() {
     let intervalId: any;
 
     if (isLoading) {
-        // Start polling every 1 second
         intervalId = setInterval(async () => {
             try {
                 const res = await fetch('http://localhost:5055/api/progress');
                 if (res.ok) {
                     const data = await res.json();
-                    setProgress(data); // Update state with new numbers
+                    setProgress(data);
                 }
             } catch (err) {
                 console.error("Failed to fetch progress", err);
@@ -44,11 +43,10 @@ function App() {
         }, 1000);
     }
 
-    // Cleanup: Stop polling when loading finishes or component unmounts
     return () => {
         if (intervalId) clearInterval(intervalId);
     };
-}, [isLoading]); // This effect runs whenever 'isLoading' changes
+}, [isLoading]);
 
   const crackHash = async () => {
 
@@ -75,7 +73,7 @@ function App() {
 
     setIsLoading(true);
     setResult("Comparing hashes...");
-    setProgress({ checks: 0, speed: 0, currentLength: 0 }); // Reset at start
+    setProgress({ checks: 0, speed: 0, currentLength: 0 });
 
     abortControllerRef.current = new AbortController();
 
@@ -109,8 +107,6 @@ function App() {
       if (error.name === 'AbortError') {
         setResult("Cancelled by user.");
 
-        // --- THE FIX IS HERE ---
-        // Force the display back to 0 immediately
         setProgress({ checks: 0, speed: 0, currentLength: 0 });
       } else {
         console.error("Error:", error);
